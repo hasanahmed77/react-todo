@@ -24,9 +24,9 @@ function TodoList({ filteredTodos, todo, setTodo }) {
             size="large"
             dataSource={filteredTodos}
             renderItem={item =>
-             <List.Item>{item.text}
-             <CheckCircleTwoTone onClick={ () => completeHandler(item)} />
-             <DeleteTwoTone onClick={ () => handleDelete(item)} /> {/*<-- delete button */}
+             <List.Item className="items">{item.text}
+             <CheckCircleTwoTone onClick={ () => completeHandler(item)} className="complete-btn" />
+             <DeleteTwoTone onClick={ () => handleDelete(item)} className="delete-btn" /> {/*<-- delete button */}
              </List.Item>}
             />
         </div>

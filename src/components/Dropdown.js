@@ -12,7 +12,7 @@ function Dropdown({ status, setStatus }) {
     }
 
     return (
-        <div className="dropdown">
+        <div className="dropdown items">
             <Select defaultValue="All" style={{ width: 120 }} onChange={handleChange}>
                 <Option value="All">All</Option>
                 <Option value="Completed">Completed</Option>

@@ -58,7 +58,7 @@ function Home() {
             </header>
 
             <form>
-                <div className="main">
+                <div className="main flex flex__jc-sb flex__ai-c margin margin__m-b">
                     <AddTodos
                         inputData={inputData}
                         setInputData={setInputData}

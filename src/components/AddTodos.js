@@ -28,7 +28,7 @@ function AddTodos({ inputData, setInputData, todo, setTodo }) {
     }
 
     return (
-        <div className="add-todos">
+        <div className="add-todos margin margin__m-r items">
             {/* <Input placeholder="Basic usage" /> */}
             <Search
                 placeholder="Add Todos"
