@@ -3,7 +3,7 @@ import { Checkbox } from 'antd';
 import { DeleteTwoTone, CheckCircleTwoTone }  from '@ant-design/icons';
 import { List, Typography, Divider } from 'antd';
 
-function TodoList({ status, filteredTodos, todo, setTodo }) {
+function TodoList({ setFilteredTodos , setStatus, filteredTodos, todo, setTodo }) {
 
     const handleDelete = item => {
         setTodo(todo.filter(el => el !== item));
@@ -11,7 +11,19 @@ function TodoList({ status, filteredTodos, todo, setTodo }) {
     }
 
     const completeHandler = item => {
-        item.completed = !item.completed;
+        console.log(item);
+        const changedCompleted = filteredTodos.map(i => {
+            if(i.id === item.id){
+               return {
+                   ...i,
+                   completed: !i.completed
+                };
+            } else {
+                return i;
+            }
+        } );
+
+        setTodo(changedCompleted);
         console.log(item);
     }
 
@@ -24,11 +36,11 @@ function TodoList({ status, filteredTodos, todo, setTodo }) {
             size="large"
             dataSource={filteredTodos}
             renderItem={item =>
-             <List.Item className="items">{item.text}
-             <CheckCircleTwoTone 
-                onClick={ () => completeHandler(item)} 
-                className="complete-btn" 
-                // twoToneColor={item.completed ? 'red' : 'blue'}
+             <List.Item className='items'>{item.text}
+             <CheckCircleTwoTone
+                onClick={ () => completeHandler(item)}
+                className="complete-btn"
+                twoToneColor={item.completed ? 'orange' : '#1890FF'}
              />
              <DeleteTwoTone onClick={ () => handleDelete(item)} className="delete-btn" /> {/*<-- delete button */}
              </List.Item>}
