@@ -23,6 +23,8 @@ function Home() {
     }, [todo, status]);
 
     // FUNCTIONS
+
+
     const filterHandler = () => {
         switch(status) {
             case 'Completed':
@@ -54,7 +56,7 @@ function Home() {
     return (
         <div className="home">
             <header>
-                <h1>Todo List</h1>
+                <h1 className="margin margin__m-b">Todo List</h1>
             </header>
 
             <form>
@@ -67,7 +69,7 @@ function Home() {
                     />
                     <Dropdown status={status} setStatus={setStatus} />
                 </div>
-                <TodoList todo={todo} setTodo={setTodo} filteredTodos={filteredTodos}/>
+                <TodoList status={status} todo={todo} setTodo={setTodo} filteredTodos={filteredTodos}/>
             </form>
         </div>
     )
