@@ -8,6 +8,7 @@ function AddTodos({ inputData, setInputData, todo, setTodo }) {
     const text = <span>Please type your todo!</span>;
     const { Search } = Input;
     const [warning, setWarning] = useState(false);
+
     // SUBMIT FUNCTION
     const handlingInput = v => {
         if(v !== ""){
@@ -25,15 +26,15 @@ function AddTodos({ inputData, setInputData, todo, setTodo }) {
     const handleChange = e => {
         setWarning(false);
         console.log(e.target.value);
-        setInputData(e.target.value.trim());
+        setInputData(e.target.value);
     }
 
     const onSearch = value => {
-        handlingInput(value);
+        handlingInput(value.trim());
     }
 
     const onPressEnter = e => {
-        handlingInput(e.target.value);
+        handlingInput(e.target.value.trim());
     }
 
     return (
